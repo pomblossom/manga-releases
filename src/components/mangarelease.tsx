@@ -1,5 +1,10 @@
-import { MangaReleaseProps } from '@/shared/interfaces/mangarelease.interface'
 import styles from '../styles/Home.module.css'
+
+interface MangaReleaseProps {
+    bookTitle: string,
+    publicationDate: string,
+    publisher: string
+}
 
 export default function MangaRelease(props: MangaReleaseProps) {
     return (

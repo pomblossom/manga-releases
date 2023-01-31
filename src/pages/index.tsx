@@ -1,22 +1,37 @@
 import Head from 'next/head'
 import MangaRelease from '@/components/mangarelease'
 import styles from '@/styles/Home.module.css'
+import { getReleases } from '@/lib/get-releases';
 
 // temp data
 const RELEASES_TEMP = [
   {
-    "bookTitle": "Vinland Saga 1",
+    "bookTitle": "Vinland Saga, vol. 1",
     "publicationDate": "January 29, 2023",
     "publisher": "Kodansha USA"
   }, 
   {
-    "bookTitle": "Slam Dunk 30",
+    "bookTitle": "Slam Dunk, vol. 30",
     "publicationDate": "January 29, 2023",
     "publisher": "VIZ Media"
   }
 ]
 
-export default function Home() {
+// TODO: Get this data from Twitter API
+// For now, just get data from one user
+const userId = 100293178;
+
+export async function getStaticProps() {
+  const allReleaseData = getReleases(userId);
+  // console.log("allReleaseData", allReleaseData);
+  return {
+    props: {
+      
+    }
+  };
+}
+
+export default function Home({}) {
 
   const releaseList = RELEASES_TEMP.map((release) => (
     <MangaRelease 
