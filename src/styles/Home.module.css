@@ -6,6 +6,11 @@
   min-height: 100vh;
 }
 
+.page-header {
+  font-size: 4rem;
+  padding-bottom: 30px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -15,17 +20,10 @@
   display: flex;
 }
 
-.releases {
+.releases-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-}
-
-.release-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.page-header {
-  font-size: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2em;
+  padding: 2em 2em 0 2em;
 }

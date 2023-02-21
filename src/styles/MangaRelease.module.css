@@ -1,0 +1,16 @@
+.release-card {
+    font-family: 'Inconsolata', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  .release-title {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }
+  .release-date {
+    margin-bottom: 10px;
+  }

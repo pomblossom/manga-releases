@@ -2,7 +2,7 @@
  * Helper function to fetch tweet data using Twitter API endpoints
  * @param userId 
  */
-export async function getReleases(userId: number) : Promise<any> {
+export async function getReleases(userName: string) : Promise<any> {
 
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${process.env.BEARER_TOKEN}`);
@@ -14,13 +14,14 @@ export async function getReleases(userId: number) : Promise<any> {
         redirect: 'follow'
     };
 
-    fetch(`https://api.twitter.com/2/users/${userId}/tweets?tweet.fields=created_at,attachments&media.fields=preview_image_url&user.fields=profile_image_url`, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    // API string
+    const searchParams = `?query=from:${userName} "Out today"&tweet.fields=created_at,attachments,entities,author_id&expansions=attachments.media_keys&media.fields=preview_image_url,url`;
+    const twitterSearchApiEndpoint = "https://api.twitter.com/2/tweets/search/recent" + searchParams;
 
+    // API call
+    const res = await fetch(twitterSearchApiEndpoint, requestOptions);
+    const result = await res.json();
 
-    // let mangaReleaseArray: MangaRelease[] = [];
-    // return mangaReleaseArray;
+    return result.data;
 }
 
