@@ -25,5 +25,5 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 2em;
-  padding: 2em 2em 0 2em;
+  padding: 2em 3em 0 3em;
 }

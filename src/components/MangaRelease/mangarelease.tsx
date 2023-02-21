@@ -1,4 +1,5 @@
-import styles from '@/styles/MangaRelease.module.css'
+import Date from '../Date/Date'
+import styles from './MangaRelease.module.css'
 
 interface MangaReleaseProps {
     bookTitle: string,
@@ -12,7 +13,10 @@ export default function MangaRelease(props: MangaReleaseProps) {
     return (
         <div className={styles['release-card']}>
             <div className={styles['release-title']}>{props.bookTitle}</div>
-            <div className={styles['release-date']}>{props.publicationDate}</div>
+            <Date 
+                dateString={props.publicationDate} 
+                className={styles['release-date']}
+            />
             <div>{props.bookSummary}</div>
         </div>
     )

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import MangaRelease from '@/components/MangaRelease/mangarelease';
+import MangaRelease from '@/components/MangaRelease/MangaRelease';
 import styles from '@/styles/Home.module.css'
 import { getReleases } from '@/lib/get-releases';
 
