@@ -15,8 +15,8 @@ export interface IMangaPublisher {
 }
 
 /**
- * This is a stripped down object of the JSON data received from Twitter API containing only 
- * the information needed to display on the page. Initial JSON response data will be pared down to this object.
+ * JSON object containing only the necessary properties that are displayed on the page.
+ * Initial JSON response data from Twitter API will be pared down to this object.
  * 
  * @interface MangaReleaseJson
  * @member {string} title - Manga title
@@ -27,20 +27,4 @@ export interface MangaReleaseJson {
     title: string,
     date: string,
     description: string
-}
-
-/**
- * Base class for manga publishers (WIP)
- */
-abstract class MangaPublisher implements IMangaPublisher {
-    publisherName: string;
-    publisherTwitterHandle: string;
-    publisherKeywords: string;
-    abstract parseResponseData(jsonResponse: Array<any>) : Array<MangaReleaseJson>;
-
-    constructor(name: string, username: string, keywords: string) {
-        this.publisherName = name;
-        this.publisherKeywords = keywords;
-        this.publisherTwitterHandle = username;
-    }
 }

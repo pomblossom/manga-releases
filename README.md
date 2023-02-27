@@ -1,5 +1,5 @@
 ## Purpose
-Single page app that fetches manga releases in the current week. (Initially wanted to do a whole month's worth of data, but the free tier of Twitter's API doesn't allow this.)
+Single page app that fetches manga releases in the current week. (Initially wanted to do a whole month's worth of data, but the free tier of Twitter's API only fetches data from the past seven days.)
 
 The main goal of this project was to learn React, Next.js and Typescript.
 
