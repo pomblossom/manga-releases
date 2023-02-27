@@ -18,6 +18,7 @@
 # misc
 .DS_Store
 *.pem
+*.code-workspace
 
 # debug
 npm-debug.log*
@@ -35,5 +36,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# placeholder data
+# placeholder API data
 *.sample.tsx

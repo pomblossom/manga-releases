@@ -9,7 +9,7 @@ import styles from '@/styles/Home.module.css'
 import MangaRelease from '@/components/MangaRelease/MangaRelease';
 
 export async function getServerSideProps() {
-  // On page load, get data from one user only
+  // On page load, get data from only one publisher
   const defaultPublisherName = "Seven Seas";
   const releaseData = await getData(defaultPublisherName);
   return {
@@ -69,7 +69,7 @@ export default function Home(props: HomeProps) {
       </Head>
       
       <main className={styles.main}>
-        <h1 className={styles['page-header']}>lalala</h1>
+        <h1 className={styles['page-header']}>Manga Releases</h1>
         <div className={styles.filters}>
           {filterList}
         </div>

@@ -21,9 +21,10 @@ export default async function handler(
 
 /**
  * Helper function to fetch API data.
- * This was initially extracted from this route's handler method so that it could be used in getServerSideProps()
+ * This was initially inside this route's handler method but was extracted here so that it could be used in getServerSideProps()
  * @param publisherName 
  */
+// TODO: How to cache this to avoid unnecessary API calls? (Do we even need to?)
 export async function getData(publisherName : string) : Promise<Array<MangaReleaseJson>>{
 
   // Get publisher username and keywords
