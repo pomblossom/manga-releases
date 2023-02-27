@@ -1,6 +1,3 @@
-![Skip and Loafer](public/skip-and-loafer.png)
-<figcaption><a href="https://sevenseasentertainment.com/series/skip-and-loafer/" target="_blank">Skip and Loafer</a> vol. 3 © Misaki Takamatsu / Kodansha Ltd / Seven Seas Entertainment</figcaption>
-
 ## Purpose
 Single page app that fetches manga releases in the current week. (Initially wanted to do a whole month's worth of data, but the free tier of Twitter's API only fetches data from the past seven days.)
 
