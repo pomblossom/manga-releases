@@ -1,7 +1,7 @@
-import { PUBLISHER_LIST } from '@/lib/publisher-data';
 import { useState } from 'react';
-import { getData } from './api/getReleases';
+import { getDataWithPublisherClasses } from './api/getReleases';
 import { MangaReleaseJson } from '@/lib/interfaces';
+import { PUBLISHER_NAMES } from '@/lib/publisher-data';
 import axios from 'axios';
 import Head from 'next/head'
 import FilterButton from '@/components/FilterButton/FilterButton';
@@ -11,7 +11,7 @@ import MangaRelease from '@/components/MangaRelease/MangaRelease';
 export async function getServerSideProps() {
   // On page load, get data from only one publisher
   const defaultPublisherName = "Seven Seas";
-  const releaseData = await getData(defaultPublisherName);
+  const releaseData = await getDataWithPublisherClasses(defaultPublisherName);
   return {
     props: {
       releaseData
@@ -49,8 +49,7 @@ export default function Home(props: HomeProps) {
     )
   })
 
-  const filterList = PUBLISHER_LIST
-    .map(p => p.publisherName)
+  const filterList = PUBLISHER_NAMES
     .map(name => (
       <FilterButton 
         publisherName={name} 

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { PUBLISHER_LIST } from '@/lib/publisher-data'
 import { MangaReleaseJson } from '@/lib/interfaces';
+import { GetPublisher } from '@/lib/publisher-factory';
 import axios from 'axios';
 
 export default async function handler(
@@ -12,7 +12,7 @@ export default async function handler(
 
   if (typeof publisherName === 'string') {
     // TODO: do we need to use promise syntax?
-    const parsedData = await getData(publisherName);
+    const parsedData = await getDataWithPublisherClasses(publisherName);
     res.status(200).json({ data: parsedData })
   } else {
     res.status(500).json({ error: 'Could not determine publisher name' });
@@ -25,15 +25,15 @@ export default async function handler(
  * @param publisherName 
  */
 // TODO: How to cache this to avoid unnecessary API calls? (Do we even need to?)
-export async function getData(publisherName : string) : Promise<Array<MangaReleaseJson>>{
+export async function getDataWithPublisherClasses(publisherName : string) : Promise<Array<MangaReleaseJson>>{
 
   // Get publisher username and keywords
-  const publisher = PUBLISHER_LIST.find(p => p.publisherName === publisherName); 
+  const publisher = GetPublisher(publisherName);
 
   // API call
   if (publisher != null) {
-    const userName = publisher.publisherTwitterHandle;
-    const keywords = publisher.publisherKeywords;
+    const userName = publisher.twitterUserName;
+    const keywords = publisher.tweetKeywords;
 
     const queryParams = `from:${userName} "${keywords}"&tweet.fields=created_at`;
     const twitterSearchApiEndpoint = "https://api.twitter.com/2/tweets/search/recent?query=" + queryParams;

@@ -4,28 +4,43 @@ import { MangaReleaseJson } from "./interfaces";
 /**
  * Base class for manga publishers (WIP)
  */
-abstract class MangaPublisher implements IMangaPublisher {
-    publisherName: string;
-    publisherTwitterHandle: string;
-    publisherKeywords: string;
+export abstract class MangaPublisher implements IMangaPublisher {
+
+    // Getters
+    // TODO: These should just be the same for all child classes
+    abstract get name(): string;
+    abstract get twitterUserName(): string;
+    abstract get tweetKeywords(): string;
 
     // Each publisher composes their tweets differently and thus needs to have its own text parse implementation
     abstract parseResponseData(jsonResponse: Array<any>) : Array<MangaReleaseJson>;
 
-    constructor(name: string, username: string, keywords: string) {
-        this.publisherName = name;
-        this.publisherKeywords = keywords;
-        this.publisherTwitterHandle = username;
-    }
+    constructor() { }
 }
 
 /**
  * List of publishers (non-exhaustive)
  */
-class SevenSeas extends MangaPublisher {
-    publisherName = "Seven Seas";
-    publisherTwitterHandle = "gomanga";
-    publisherKeywords = "Out today";
+export class SevenSeas extends MangaPublisher {
+    private _name = "Seven Seas";
+    private _twitterUserName = "gomanga";
+    private _tweetKeywords = "Out today";
+
+    constructor() {
+        super();
+    }
+
+    get name(): string { 
+        return this._name; 
+    }
+
+    get twitterUserName(): string {
+        return this._twitterUserName;
+    }
+
+    get tweetKeywords(): string {
+        return this._tweetKeywords;
+    }
 
     parseResponseData(jsonResponse: Array<any>) : Array<MangaReleaseJson> {
         const parsedList = jsonResponse.map((obj : any) => {
@@ -40,10 +55,26 @@ class SevenSeas extends MangaPublisher {
     }
 }
 
-class KodanshaUSA extends MangaPublisher {
-    publisherName = "Kodansha USA";
-    publisherTwitterHandle = "kodanshamanga";
-    publisherKeywords = "NEW Kodansha";
+export class KodanshaUSA extends MangaPublisher {
+    private _name = "Kodansha USA";
+    private _twitterUserName = "kodanshamanga";
+    private _tweetKeywords = "NEW Kodansha";
+
+    constructor() {
+        super();
+    }
+
+    get name(): string { 
+        return this._name; 
+    }
+
+    get twitterUserName(): string {
+        return this._twitterUserName;
+    }
+
+    get tweetKeywords(): string {
+        return this._tweetKeywords;
+    }
 
     parseResponseData(jsonResponse: Array<any>) : Array<MangaReleaseJson> {
         const parsedList = jsonResponse.map((obj : any) => {

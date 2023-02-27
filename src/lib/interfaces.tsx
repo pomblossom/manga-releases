@@ -8,10 +8,7 @@
  * @member {Function} parseResponseData - Function that will parse the API JSON response. 
  */
 export interface IMangaPublisher {
-    publisherName: string,
-    publisherTwitterHandle: string,
-    publisherKeywords: string
-    parseResponseData: Function // TODO: should not be able to add an empty function here
+    parseResponseData: Function 
 }
 
 /**
