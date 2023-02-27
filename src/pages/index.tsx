@@ -20,7 +20,7 @@ export async function getServerSideProps() {
 }
 
 interface HomeProps { 
-  releaseData: any
+  releaseData: Array<MangaReleaseJson>
 }
 
 export default function Home(props: HomeProps) {

@@ -30,7 +30,7 @@ export async function getData(publisherName : string) : Promise<Array<MangaRelea
   // Get publisher username and keywords
   const publisher = PUBLISHER_LIST.find(p => p.publisherName === publisherName); 
 
-  // API string
+  // API call
   if (publisher != null) {
     const userName = publisher.publisherTwitterHandle;
     const keywords = publisher.publisherKeywords;
