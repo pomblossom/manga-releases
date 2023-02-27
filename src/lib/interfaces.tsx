@@ -1,13 +1,17 @@
 /**
- * Properties needed to fetch and parse response data from the Twitter API.
+ * Interface to encapsulate manga publisher properties that are 
+ * needed to fetch and parse response data from the Twitter API.
  * 
- * @interface MangaPublisher
+ * @interface IMangaPublisher
  * @member {string} publisherName - Publisher name. This is displayed on the "filter" buttons.
  * @member {string} publisherTwitterHandle - Publisher's Twitter handle
  * @member {string} publisherKeywords - Publisher-specific keywords that identify its release tweets.
  * @member {Function} parseResponseData - Function that will parse the API JSON response. 
  */
 export interface IMangaPublisher {
+    name: string,
+    twitterUserName: string,
+    tweetKeywords: string,
     parseResponseData: Function 
 }
 

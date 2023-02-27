@@ -24,7 +24,7 @@ export default async function handler(
  * This was initially inside this route's handler method but was extracted here so that it could be used in getServerSideProps()
  * @param publisherName 
  */
-// TODO: How to cache this to avoid unnecessary API calls? (Do we even need to?)
+// TODO: Use caching to avoid unnecessary API calls
 export async function getData(publisherName : string) : Promise<Array<MangaReleaseJson>>{
 
   // Get publisher username and keywords
@@ -53,6 +53,6 @@ export async function getData(publisherName : string) : Promise<Array<MangaRelea
     
   } else {
     // TODO: More intuitive error handling for this scenario
-    return new Array<MangaReleaseJson>();
+    throw new Error('Could not initialize publisher');
   }
 }

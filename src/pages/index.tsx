@@ -28,7 +28,7 @@ export default function Home(props: HomeProps) {
   const [data, setData] = useState(props.releaseData);
   const [filter, setFilter] = useState('Seven Seas');
 
-  // This needs to be inside the component so we can use setData hook
+  // This needs to be inside the component so we can use hooks
   async function getData(publisherName: string) {
     try {
       const response = await axios.get(`/api/getReleases?publisherName=${publisherName}`)
