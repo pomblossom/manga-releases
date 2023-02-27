@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { PUBLISHER_LIST } from '@/lib/publisher-data'
-import { MangaReleaseJson } from '@/lib/publisher-data';
+import { MangaReleaseJson } from '@/lib/interfaces';
 import axios from 'axios';
 
 export default async function handler(

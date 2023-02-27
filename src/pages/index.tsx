@@ -1,7 +1,7 @@
 import { PUBLISHER_LIST } from '@/lib/publisher-data';
 import { useState } from 'react';
 import { getData } from './api/getReleases';
-import { MangaReleaseJson } from '@/lib/publisher-data';
+import { MangaReleaseJson } from '@/lib/interfaces';
 import axios from 'axios';
 import Head from 'next/head'
 import FilterButton from '@/components/FilterButton/FilterButton';
