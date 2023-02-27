@@ -11,11 +11,6 @@
   padding-bottom: 30px;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-}
-
 .filters {
   display: flex;
 }
@@ -25,5 +20,5 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 2em;
-  padding: 2em 3em 0 3em;
+  padding: 2em 5em 0 5em;
 }

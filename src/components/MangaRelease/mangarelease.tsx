@@ -4,9 +4,7 @@ import styles from './MangaRelease.module.css'
 interface MangaReleaseProps {
     bookTitle: string,
     publicationDate: string,
-    bookSummary: string,
-    bookUrl?: string,
-    publisher?: string
+    bookSummary: string
 }
 
 export default function MangaRelease(props: MangaReleaseProps) {
