@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getDataWithPublisherClasses } from './api/getReleases';
+import { getData } from './api/getReleases';
 import { MangaReleaseJson } from '@/lib/interfaces';
 import { PUBLISHER_NAMES } from '@/lib/publisher-data';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import MangaRelease from '@/components/MangaRelease/MangaRelease';
 export async function getServerSideProps() {
   // On page load, get data from only one publisher
   const defaultPublisherName = "Seven Seas";
-  const releaseData = await getDataWithPublisherClasses(defaultPublisherName);
+  const releaseData = await getData(defaultPublisherName);
   return {
     props: {
       releaseData

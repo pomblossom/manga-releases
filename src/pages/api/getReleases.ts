@@ -12,7 +12,7 @@ export default async function handler(
 
   if (typeof publisherName === 'string') {
     // TODO: do we need to use promise syntax?
-    const parsedData = await getDataWithPublisherClasses(publisherName);
+    const parsedData = await getData(publisherName);
     res.status(200).json({ data: parsedData })
   } else {
     res.status(500).json({ error: 'Could not determine publisher name' });
@@ -25,7 +25,7 @@ export default async function handler(
  * @param publisherName 
  */
 // TODO: How to cache this to avoid unnecessary API calls? (Do we even need to?)
-export async function getDataWithPublisherClasses(publisherName : string) : Promise<Array<MangaReleaseJson>>{
+export async function getData(publisherName : string) : Promise<Array<MangaReleaseJson>>{
 
   // Get publisher username and keywords
   const publisher = GetPublisher(publisherName);
