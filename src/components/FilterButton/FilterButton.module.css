@@ -4,4 +4,10 @@
     border-radius: 5px;
     padding: 1em;
     cursor: pointer;
+    background-color: white;
 }
+
+.btn[aria-pressed="true"] {
+    background-color: rgb(120, 86, 255);
+    color: white;
+  }

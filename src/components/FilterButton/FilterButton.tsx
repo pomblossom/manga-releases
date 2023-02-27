@@ -11,6 +11,7 @@ export default function FilterButton(props: FilterButtonProps) {
         <button
             type="button"
             className={styles['btn']}
+            aria-pressed={props.isPressed}
             onClick={() => props.fetchData(props.publisherName)}
         >
             {props.publisherName}

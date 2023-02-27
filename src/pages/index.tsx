@@ -26,6 +26,7 @@ interface HomeProps {
 export default function Home(props: HomeProps) {
 
   const [data, setData] = useState(props.releaseData);
+  const [filter, setFilter] = useState('Seven Seas');
 
   // This needs to be inside the component so we can use setData hook
   async function getData(publisherName: string) {
@@ -33,6 +34,7 @@ export default function Home(props: HomeProps) {
       const response = await axios.get(`/api/getReleases?publisherName=${publisherName}`)
         .then(response => {
           setData(response.data.data);
+          setFilter(publisherName);
         });
     } catch (error) {
       console.log("fetch error", error);
@@ -53,7 +55,7 @@ export default function Home(props: HomeProps) {
     .map(name => (
       <FilterButton 
         publisherName={name} 
-        isPressed={true}
+        isPressed={name === filter}
         fetchData={getData} 
       />
     ));
